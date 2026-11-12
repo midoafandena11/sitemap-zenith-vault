@@ -1,0 +1,15 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Redirecting…</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script>
+(async()=>{
+  const home="https://zenithvaultusa.com";
+  try{
+    const p=new URLSearchParams(location.search).get("products")||"";
+    const id=p.split(",")[0].split(":")[0].trim();
+    const map=await (await fetch("checkout-map.json")).json();
+    location.replace(map[id]||home);
+  }catch(e){location.replace(home);}
+})();
+</script></head>
+<body><p>Redirecting to Zenith Vault…</p></body></html>
